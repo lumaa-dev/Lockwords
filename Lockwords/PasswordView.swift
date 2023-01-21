@@ -113,6 +113,7 @@ struct CreatePassword: View {
                     } label: {
                         if passwordVisible { Image(systemName: "eye.slash") } else { Image(systemName: "eye") }
                     }
+                    .frame(width: 20, height: 20)
                 }
             }
             

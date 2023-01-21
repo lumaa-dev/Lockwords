@@ -102,7 +102,7 @@ func saveLocks() {
     do {
         try UserDefaults.standard.string(forKey: "passwords")?.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
     } catch {
-        // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
+        print("Missing permissions.")
     }
 }
 
@@ -111,27 +111,3 @@ func getDocumentsDirectory() -> URL {
     print(paths[0])
     return paths[0]
 }
-
-//struct OutputDocument: FileDocument {
-//    static var readableContentTypes: [UTType] { [.plainText] }
-//
-//    var output: [Password]
-//
-//    init(output: [Password]) {
-//        self.output = output
-//    }
-//
-//    init(configuration: FileDocumentReadConfiguration) throws {
-//        guard let data = configuration.file.regularFileContents,
-//              let string = String(data: data, encoding: .utf8)
-//        else {
-//            throw CocoaError(.fileReadCorruptFile)
-//        }
-//        output = string
-//    }
-//
-//    func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
-//        return FileWrapper(regularFileWithContents: output.data(using: .utf8)!)
-//    }
-//
-//}
