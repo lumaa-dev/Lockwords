@@ -106,7 +106,7 @@ struct CreatePassword: View {
                 TextField("Source", text: $source)
                 TextField("Nom d'utilisateur", text: $username)
                 HStack {
-                    if passwordVisible == false { SecureField("Mot de passe", text: $password) } else { TextField("Mot de passe", text: $password) }
+                    if passwordVisible == false { SecureField("Mot de passe", text: $password) } else { TextField("Mot de passe", text: $password).autocorrectionDisabled(true) }
                     
                     Button() {
                         passwordVisible.toggle()
